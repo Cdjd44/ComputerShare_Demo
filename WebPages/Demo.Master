@@ -10,14 +10,34 @@
     <script src="../Scripts/jQuery/jQuery-3.4.1.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="../Scripts/bootstrap-4.4.1/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../Scripts/bootstrap-4.4.1/css/bootstrap.css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
+
+
 <body>
     <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="~/WebPages/Home.aspx">ComnputerShare Demo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a runat="server" class="nav-link" href="~/WebPages/Home.aspx">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <asp:ScriptManager ID="ScriptManager" runat="server" ScriptMode="Release"></asp:ScriptManager>
+        
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="MainBody" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
