@@ -42,13 +42,22 @@ namespace ComputerShare_Demo.WebPages
         protected global::System.Web.UI.WebControls.Label lblFile1RawData;
 
         /// <summary>
-        /// btnBestBuyAndSell control.
+        /// btnBestBuyAndSellFile1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBestBuyAndSell;
+        protected global::System.Web.UI.WebControls.Button btnBestBuyAndSellFile1;
+
+        /// <summary>
+        /// pnlBuySellFile1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel pnlBuySellFile1;
 
         /// <summary>
         /// lblFile1Results control.
@@ -58,6 +67,51 @@ namespace ComputerShare_Demo.WebPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFile1Results;
+
+        /// <summary>
+        /// btnLoadFile2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLoadFile2;
+
+        /// <summary>
+        /// pnlFile2RawResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel pnlFile2RawResults;
+
+        /// <summary>
+        /// lblFile2RawData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFile2RawData;
+
+        /// <summary>
+        /// btnBestBuyAndSellFile2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBestBuyAndSellFile2;
+
+        /// <summary>
+        /// pnlBuySellFile2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel pnlBuySellFile2;
 
         /// <summary>
         /// lblFile2Results control.

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebPages/Demo.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="ComputerShare_Demo.WebPages.Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebPages/Demo.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="ComputerShare_Demo.WebPages.Home" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
@@ -71,15 +71,20 @@
 
                 <div class="row text-center">
                     <div class="col-12">
-                        <asp:Button ID="btnBestBuyAndSell" runat="server" Text="Find best Buy/Sell day" OnClick="btnBestBuyAndSell_Click"></asp:Button>
+                        <asp:Button ID="btnBestBuyAndSellFile1" runat="server" Text="Find best Buy/Sell day" OnClick="btnBestBuyAndSellFile1_Click"></asp:Button>
                     </div>
                 </div>
 
-                <div class="row text-center">
-                    <div class="col-12">
-                        <asp:Label ID="lblFile1Results" runat="server" Text="Results:"></asp:Label>
-                    </div>
-                </div>
+                <asp:UpdatePanel ID="pnlBuySellFile1" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <asp:Label ID="lblFile1Results" runat="server" Text="Results:"></asp:Label>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
 
 
             </div>
@@ -94,11 +99,38 @@
                         <h3>File 2</h3>
                     </div>
                 </div>
+
                 <div class="row text-center">
                     <div class="col-12">
-                        <asp:Label ID="lblFile2Results" runat="server" Text="Results:"></asp:Label>
+                        <asp:Button ID="btnLoadFile2" runat="server" Text="Load File 1" OnClick="btnLoadFile2_Click"></asp:Button>
                     </div>
                 </div>
+
+                <asp:UpdatePanel ID="pnlFile2RawResults" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <asp:Label ID="lblFile2RawData" runat="server" Text="Raw Data:"></asp:Label>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
+                <div class="row text-center">
+                    <div class="col-12">
+                        <asp:Button ID="btnBestBuyAndSellFile2" runat="server" Text="Find best Buy/Sell day" OnClick="btnBestBuyAndSellFile2_Click"></asp:Button>
+                    </div>
+                </div>
+
+                <asp:UpdatePanel ID="pnlBuySellFile2" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <asp:Label ID="lblFile2Results" runat="server" Text="Results:"></asp:Label>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
         </div>
     </div>

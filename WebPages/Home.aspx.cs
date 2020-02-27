@@ -11,17 +11,20 @@ namespace ComputerShare_Demo.WebPages
 {
     public partial class Home : System.Web.UI.Page
     {
+        private IFileHelper file1Helper = new FileHelper();
+        private IFileHelper file2Helper = new FileHelper();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void loadFile1()
+        private IDictionary<int, double> loadFile1()
         {
             string filePath = Server.MapPath("~/") + "DemoFiles\\ChallengeSampleDataSet1.txt";
             string rawContent = string.Empty;
             int count = 1;
-            IDictionary<int, string> month1 = new Dictionary<int, string>();
+            IDictionary<int, double> month1 = new Dictionary<int, double>();
 
             using (StreamReader sr = new StreamReader(filePath))
             {
@@ -36,86 +39,171 @@ namespace ComputerShare_Demo.WebPages
 
             foreach (string s in split)
             {
-                month1.Add(count, s);
+                month1.Add(count, double.Parse(s));
                 count++;
-            }
-
-            string stop = "";
-        }
-
-        private void loadFile2()
-        {
-            string filePath = Server.MapPath("~/") + "DemoFiles\\ChallengeSampleDataSet2.txt";
-            string rawContent = string.Empty;
-            int count = 1;
-            IDictionary<int, string> month1 = new Dictionary<int, string>();
-
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    rawContent = line;
-                }
-            }
-
-            string[] split = rawContent.Split(',');
-
-            foreach (string s in split)
-            {
-                month1.Add(count, s);
-                count++;
-            }
-
-            string stop = "";
-        }
-
-        private IDictionary<int,string> loadFileFromDll(string fileName)
-        {
-            IFileHelper fileHelper = new FileHelper();
-            string filePath = Server.MapPath("~/") + "DemoFiles\\" + fileName;
-            IDictionary<int, string> month1 = new Dictionary<int, string>();
-
-            try
-            {
-                month1 = fileHelper.loadFile(filePath);
-            }
-            catch (Exception ex)
-            {
-
             }
 
             return month1;
         }
 
-        protected void btnLoadFile1_Click(object sender, EventArgs e)
+        private IDictionary<int, double> loadFile2()
         {
-            IDictionary<int, string> file1 = new Dictionary<int, string>();
-            lblFile1RawData.Text = "Results: ";
+            string filePath = Server.MapPath("~/") + "DemoFiles\\ChallengeSampleDataSet2.txt";
+            string rawContent = string.Empty;
+            int count = 1;
+            IDictionary<int, double> month2 = new Dictionary<int, double>();
+
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    rawContent = line;
+                }
+            }
+
+            string[] split = rawContent.Split(',');
+
+            foreach (string s in split)
+            {
+                month2.Add(count, double.Parse(s));
+                count++;
+            }
+
+            return month2;
+        }
+
+        private IDictionary<int, double> loadFileFromDll(string fileName)
+        {
+            string filePath = Server.MapPath("~/") + "DemoFiles\\" + fileName;
+            IDictionary<int, double> month = new Dictionary<int, double>();
 
             try
             {
-                file1 = loadFileFromDll("ChallengeSampleDataSet1.txt");
+                //string test = fileName.Substring(fileName.Length - 5, 1);
+
+                if (fileName.Substring(fileName.Length - 5, 1).Contains("1"))
+                {
+                    month = file1Helper.loadFile(filePath);
+                }
+                else
+                {
+                    month = file2Helper.loadFile(filePath);
+                }
+
             }
             catch (Exception ex)
             {
 
             }
 
-            if(file1.Count > 0)
+            return month;
+        }
+
+        protected void btnLoadFile1_Click(object sender, EventArgs e)
+        {
+            IDictionary<int, double> file1 = new Dictionary<int, double>();
+            lblFile1RawData.Text = "Results: ";
+
+            try
             {
-                foreach(KeyValuePair<int,string> kvp in file1)
+                //file1 = loadFileFromDll("ChallengeSampleDataSet1.txt");
+                file1 = loadFile1();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            if (file1.Count > 0)
+            {
+                foreach (KeyValuePair<int, double> kvp in file1)
                 {
-                    lblFile1RawData.Text += kvp.Key + ": " + kvp.Value + Environment.NewLine;
+                    lblFile1RawData.Text += "<br/>" + kvp.Key + ": " + kvp.Value;
                 }
 
                 pnlFile1RawResults.Update();
             }
         }
 
-        protected void btnBestBuyAndSell_Click(object sender, EventArgs e)
+        protected void btnLoadFile2_Click(object sender, EventArgs e)
         {
+            IDictionary<int, double> file2 = new Dictionary<int, double>();
+            lblFile2RawData.Text = "Results: ";
 
+            try
+            {
+                //file1 = loadFileFromDll("ChallengeSampleDataSet1.txt");
+                file2 = loadFile2();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            if (file2.Count > 0)
+            {
+                foreach (KeyValuePair<int, double> kvp in file2)
+                {
+                    lblFile2RawData.Text += "<br/>" + kvp.Key + ": " + kvp.Value;
+                }
+
+                pnlFile2RawResults.Update();
+            }
         }
+
+
+        protected void btnBestBuyAndSellFile1_Click(object sender, EventArgs e)
+        {
+            lblFile1Results.Text = BuySellLogic(loadFile1());
+
+            pnlBuySellFile1.Update();
+        }
+
+        protected void btnBestBuyAndSellFile2_Click(object sender, EventArgs e)
+        {
+            lblFile2Results.Text = BuySellLogic(loadFile2());
+
+            pnlBuySellFile2.Update();
+        }
+
+        public string BuySellLogic(IDictionary<int, double> dict)
+        {
+            int lowestDay = 0;
+            double lowestPrice = 0;
+            int highestDay = 0;
+            double highestPrice = 0;
+
+            foreach (KeyValuePair<int,double> kvp in dict)
+            {
+                if(kvp.Key == 1)
+                {
+                    lowestDay = kvp.Key;
+                    lowestPrice = kvp.Value;
+                    highestDay = kvp.Key;
+                    highestPrice = kvp.Value;
+                }
+                else
+                {
+                    if(kvp.Value < lowestPrice)
+                    {
+                        lowestDay = kvp.Key;
+                        lowestPrice = kvp.Value;
+                    }
+                    else if(kvp.Value > highestPrice)
+                    {
+                        highestDay = kvp.Key;
+                        highestPrice = kvp.Value;
+                    }
+                }
+
+            }
+
+            return "<br/>BuyDay: " + lowestDay + ": " + lowestPrice + "<br/>sellDay: " + highestDay + ": " + highestPrice;
+        }
+
+
+       
     }
+
 }
