@@ -169,41 +169,75 @@ namespace ComputerShare_Demo.WebPages
 
         public string BuySellLogic(IDictionary<int, double> dict)
         {
-            int lowestDay = 0;
-            double lowestPrice = 0;
-            int highestDay = 0;
-            double highestPrice = 0;
+            int lowestDay = 0, highestDay = 0, buyingDay = 0, sellingDay = 0;
+            double lowestPrice = 0, highestPrice = 0, buyingPrice = 0, sellingPrice = 0, profit = 0;
 
-            foreach (KeyValuePair<int,double> kvp in dict)
+            var keyOfMinValue = dict.Aggregate((x, y) => x.Value < y.Value ? x : y).Key;
+            var keyOfMaxValue = dict.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+
+            if (keyOfMinValue < keyOfMaxValue)
             {
-                if(kvp.Key == 1)
+                buyingDay = lowestDay = keyOfMinValue;
+                buyingPrice = lowestPrice = dict[keyOfMinValue];
+                sellingDay = highestDay = keyOfMaxValue;
+                sellingPrice = highestPrice = dict[keyOfMaxValue];
+            }
+            else
+            {
+                foreach (KeyValuePair<int, double> kvp in dict)
                 {
-                    lowestDay = kvp.Key;
-                    lowestPrice = kvp.Value;
-                    highestDay = kvp.Key;
-                    highestPrice = kvp.Value;
-                }
-                else
-                {
-                    if(kvp.Value < lowestPrice)
+                    if (lowestPrice == 0 || kvp.Value < lowestPrice)
                     {
                         lowestDay = kvp.Key;
                         lowestPrice = kvp.Value;
                     }
-                    else if(kvp.Value > highestPrice)
+                    else if (highestPrice == 0 || kvp.Value > highestPrice)
                     {
                         highestDay = kvp.Key;
                         highestPrice = kvp.Value;
                     }
-                }
 
+                    if (buyingPrice == 0)
+                    {
+                        buyingDay = kvp.Key;
+                        buyingPrice = kvp.Value;
+                    }
+
+                    if (sellingPrice - kvp.Value > profit)
+                    {
+                        // miss last day for buying as cannot sell within the month
+                        if (kvp.Key < dict.Count)
+                        {
+                            buyingDay = kvp.Key;
+                            buyingPrice = kvp.Value;
+                        }
+                    }
+                    else
+                    {
+                        if(buyingDay > sellingDay)
+                        {
+                            sellingDay = kvp.Key;
+                            sellingPrice = kvp.Value;
+                        }
+                        
+                    }
+
+                    profit = sellingPrice - buyingPrice;
+
+                }
             }
 
-            return "<br/>BuyDay: " + lowestDay + ": " + lowestPrice + "<br/>sellDay: " + highestDay + ": " + highestPrice;
+            profit = sellingPrice - buyingPrice;
+
+            return "<br/>Lowest: " + lowestDay + ": " + lowestPrice +
+                "<br/>Highest: " + highestDay + ": " + highestPrice +
+                "<br/>Buy Day: " + buyingDay + ": " + buyingPrice +
+                    "<br/>Sell Day: " + sellingDay + ": " + sellingPrice +
+                    "<br/>Profit: " + profit;
         }
 
 
-       
+
     }
 
 }
