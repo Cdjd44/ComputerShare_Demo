@@ -47,16 +47,41 @@
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
             <div class="jumbotron">
-                 <div class="row text-center">
+                <div class="row text-center">
                     <div class="col-12">
                         <h3>File 1</h3>
                     </div>
                 </div>
+
+                <div class="row text-center">
+                    <div class="col-12">
+                        <asp:Button ID="btnLoadFile1" runat="server" Text="Load File 1" OnClick="btnLoadFile1_Click"></asp:Button>
+                    </div>
+                </div>
+
+                <asp:UpdatePanel ID="pnlFile1RawResults" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <asp:Label ID="lblFile1RawData" runat="server" Text="Raw Data:"></asp:Label>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
+                <div class="row text-center">
+                    <div class="col-12">
+                        <asp:Button ID="btnBestBuyAndSell" runat="server" Text="Find best Buy/Sell day" OnClick="btnBestBuyAndSell_Click"></asp:Button>
+                    </div>
+                </div>
+
                 <div class="row text-center">
                     <div class="col-12">
                         <asp:Label ID="lblFile1Results" runat="server" Text="Results:"></asp:Label>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
@@ -64,7 +89,7 @@
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
             <div class="jumbotron">
-                 <div class="row text-center">
+                <div class="row text-center">
                     <div class="col-12">
                         <h3>File 2</h3>
                     </div>
