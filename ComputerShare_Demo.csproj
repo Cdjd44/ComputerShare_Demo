@@ -83,6 +83,7 @@
     <Content Include="Scripts\bootstrap-4.4.1\js\bootstrap.min.js" />
     <Content Include="Scripts\jQuery\jQuery-3.4.1.js" />
     <Content Include="Web.config" />
+    <Content Include="WebPages\Fancy.aspx" />
     <Content Include="WebPages\Home.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +94,13 @@
     </Compile>
     <Compile Include="WebPages\Demo.Master.designer.cs">
       <DependentUpon>Demo.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fancy.aspx.cs">
+      <DependentUpon>Fancy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fancy.aspx.designer.cs">
+      <DependentUpon>Fancy.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPages\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

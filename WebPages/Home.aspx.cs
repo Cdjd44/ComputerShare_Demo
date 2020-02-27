@@ -126,53 +126,53 @@ namespace ComputerShare_Demo.WebPages
             pnlBuySellFile2.Update();
         }
 
-        //protected void btnLoadFile1_Click(object sender, EventArgs e)
-        //{
-        //    IDictionary<int, double> file1 = new Dictionary<int, double>();
-        //    lblFile1RawData.Text = "Results: ";
-        //    try
-        //    {
-        //        file1 = loadFileFromDll("ChallengeSampleDataSet1.txt");
-        //        //file1 = loadFile1();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //    }
-        //    if (file1.Count > 0)
-        //    {
-        //        foreach (KeyValuePair<int, double> kvp in file1)
-        //        {
-        //            lblFile1RawData.Text += "<br/>" + kvp.Key + ": " + kvp.Value;
-        //        }
-        //        pnlFile1RawResults.Update();
-        //    }
-        //}
+        protected void btnLoadFile1_Click(object sender, EventArgs e)
+        {
+            IDictionary<int, double> file1 = new Dictionary<int, double>();
+            lblFile1RawData.Text = "Results: ";
+            try
+            {
+                file1 = loadFileFromDll("ChallengeSampleDataSet1.txt");
+                //file1 = loadFile1();
+            }
+            catch (Exception ex)
+            {
+            }
+            if (file1.Count > 0)
+            {
+                foreach (KeyValuePair<int, double> kvp in file1)
+                {
+                    lblFile1RawData.Text += "<br/>" + kvp.Key + ": " + kvp.Value;
+                }
+                pnlFile1RawResults.Update();
+            }
+        }
 
-        //protected void btnLoadFile2_Click(object sender, EventArgs e)
-        //{
-        //    IDictionary<int, double> file2 = new Dictionary<int, double>();
-        //    lblFile2RawData.Text = "Results: ";
+        protected void btnLoadFile2_Click(object sender, EventArgs e)
+        {
+            IDictionary<int, double> file2 = new Dictionary<int, double>();
+            lblFile2RawData.Text = "Results: ";
 
-        //    try
-        //    {
-        //        file2 = loadFileFromDll("ChallengeSampleDataSet2.txt");
-        //        //file2 = loadFile2();
-        //    }
-        //    catch (Exception ex)
-        //    {
+            try
+            {
+                file2 = loadFileFromDll("ChallengeSampleDataSet2.txt");
+                //file2 = loadFile2();
+            }
+            catch (Exception ex)
+            {
 
-        //    }
+            }
 
-        //    if (file2.Count > 0)
-        //    {
-        //        foreach (KeyValuePair<int, double> kvp in file2)
-        //        {
-        //            lblFile2RawData.Text += "<br/>" + kvp.Key + ": " + kvp.Value;
-        //        }
+            if (file2.Count > 0)
+            {
+                foreach (KeyValuePair<int, double> kvp in file2)
+                {
+                    lblFile2RawData.Text += "<br/>" + kvp.Key + ": " + kvp.Value;
+                }
 
-        //        pnlFile2RawResults.Update();
-        //    }
-        //}
+                pnlFile2RawResults.Update();
+            }
+        }
 
 
 
