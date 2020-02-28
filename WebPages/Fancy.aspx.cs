@@ -13,7 +13,12 @@ namespace ComputerShare_Demo.WebPages
         private Page page;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.IsPostBack)
+            if (!Page.IsPostBack)
+            {
+                Session["file1Helper"] = null;
+                Session["file2Helper"] = null;
+            }
+                if (Page.IsPostBack)
             {
                 if (Session["file1Helper"] != null)
                 {
