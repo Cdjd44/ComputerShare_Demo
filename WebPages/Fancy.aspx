@@ -218,12 +218,33 @@
                                         <li class="buy ml-3">Buy</li>
                                         <li class="sell ml-3">Sell</li>
                                     </ul>
-
-
                                 </div>
-
-
                             </div>
+
+                            <div class="row m-3">
+                                 <div class="col-12 col-md-6">
+                                <asp:Label ID="lblLowestPriceInMonth1" runat="server"></asp:Label>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <asp:Label ID="lblHighestPriceInMonth1" runat="server"></asp:Label>
+                            </div>
+                        </div>
+
+                        <div class="row m-3 mt-0">
+                            <div class="col-12">
+                                <asp:Label ID="lblBestDayToBuyMonth1" runat="server"></asp:Label>
+                            </div>
+
+                            <div class="col-12">
+                                <asp:Label ID="lblBestDayToSellMonth1" runat="server"></asp:Label>
+                            </div>
+
+                            <div class="col-12">
+                                <asp:Label ID="lblTotalProfitMonth1" runat="server"></asp:Label>
+                            </div>
+
+                        </div>
+                    
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -349,10 +370,35 @@
                                     </ul>
                                 </div>
                                 <ul class="days col-12">
-                                        <li class="buy ml-3">Buy</li>
-                                        <li class="sell ml-3">Sell</li>
-                                    </ul>
+                                    <li class="buy ml-3">Buy</li>
+                                    <li class="sell ml-3">Sell</li>
+                                </ul>
                             </div>
+                        </div>
+
+                        <div class="row m-3">
+                            <div class="col-12 col-md-6">
+                                <asp:Label ID="lblLowestPriceInMonth2" runat="server"></asp:Label>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <asp:Label ID="lblHighestPriceInMonth2" runat="server"></asp:Label>
+                            </div>
+                        </div>
+
+                        <div class="row m-3 mt-0">
+                            <div class="col-12">
+                                <asp:Label ID="lblBestDayToBuyMonth2" runat="server"></asp:Label>
+                            </div>
+
+                            <div class="col-12">
+                                <asp:Label ID="lblBestDayToSellMonth2" runat="server"></asp:Label>
+                            </div>
+
+                            <div class="col-12">
+                                <asp:Label ID="lblTotalProfitMonth2" runat="server"></asp:Label>
+                            </div>
+
+
                         </div>
                     </div>
                     <div class="modal-footer">

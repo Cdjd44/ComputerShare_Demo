@@ -339,6 +339,51 @@ namespace ComputerShare_Demo.WebPages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl f1Li30;
 
         /// <summary>
+        /// lblLowestPriceInMonth1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLowestPriceInMonth1;
+
+        /// <summary>
+        /// lblHighestPriceInMonth1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHighestPriceInMonth1;
+
+        /// <summary>
+        /// lblBestDayToBuyMonth1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBestDayToBuyMonth1;
+
+        /// <summary>
+        /// lblBestDayToSellMonth1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBestDayToSellMonth1;
+
+        /// <summary>
+        /// lblTotalProfitMonth1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalProfitMonth1;
+
+        /// <summary>
         /// lblFile2ModalLabel control.
         /// </summary>
         /// <remarks>
@@ -625,5 +670,50 @@ namespace ComputerShare_Demo.WebPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl f2Li30;
+
+        /// <summary>
+        /// lblLowestPriceInMonth2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLowestPriceInMonth2;
+
+        /// <summary>
+        /// lblHighestPriceInMonth2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHighestPriceInMonth2;
+
+        /// <summary>
+        /// lblBestDayToBuyMonth2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBestDayToBuyMonth2;
+
+        /// <summary>
+        /// lblBestDayToSellMonth2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBestDayToSellMonth2;
+
+        /// <summary>
+        /// lblTotalProfitMonth2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalProfitMonth2;
     }
 }

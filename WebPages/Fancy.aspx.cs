@@ -124,14 +124,28 @@ namespace ComputerShare_Demo.WebPages
         
         protected void btnBestBuyAndSellFile1_Click(object sender, EventArgs e)
         {
+            lblLowestPriceInMonth1.Text = "Lowest Price This Month:";
+            lblHighestPriceInMonth1.Text = "Highest Price This Month:";
+            lblBestDayToBuyMonth1.Text = "Best Day to Buy:";
+            lblBestDayToSellMonth1.Text = "Best Day to Sell:";
+            lblTotalProfitMonth1.Text = "Total Profit:";
+
             string data = file1Helper.GetDaysForMaxProfit(file1Helper.Data);
 
-            string[] delim = { "<br/>" };
-            string[] split = data.Split(delim, StringSplitOptions.None);
-            string[] buySplit = split[3].Split(':');
-            string[] sellSplit = split[4].Split(':');
+            string[] split = data.Split(',');
+            string[] lowSplit = split[0].Split(':');
+            string[] highSplit = split[1].Split(':');
+            string[] buySplit = split[2].Split(':');
+            string[] sellSplit = split[3].Split(':');
             string buyDay = "#MainBody_f1Li" + buySplit[1].Trim();
             string sellDay = "#MainBody_f1Li" + sellSplit[1].Trim();
+
+            lblLowestPriceInMonth1.Text += " Day " + lowSplit[1].ToString() + " at " + lowSplit[2].ToString();
+            lblHighestPriceInMonth1.Text += " Day " + highSplit[1].ToString() + " at " + highSplit[2].ToString();
+
+            lblBestDayToBuyMonth1.Text += " " + buySplit[1];
+            lblBestDayToSellMonth1.Text += " " + sellSplit[1];
+            lblTotalProfitMonth1.Text += " " + split[4];
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "setBuy", "setBuyingDay('" + buyDay + "');", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "setSell", "setSellingDay('" + sellDay + "');", true);
@@ -141,14 +155,29 @@ namespace ComputerShare_Demo.WebPages
        
         protected void btnBestBuyAndSellFile2_Click(object sender, EventArgs e)
         {
-            string data = file2Helper.GetDaysForMaxProfit(file2Helper.Data);
+            lblLowestPriceInMonth2.Text = "Lowest Price This Month:";
+            lblHighestPriceInMonth2.Text = "Highest Price This Month:";
+            lblBestDayToBuyMonth2.Text = "Best Day to Buy:";
+            lblBestDayToSellMonth2.Text = "Best Day to Sell:";
+            lblTotalProfitMonth2.Text = "Total Profit:";
 
-            string[] delim = { "<br/>" };
-            string[] split = data.Split(delim, StringSplitOptions.None);
-            string[] buySplit = split[3].Split(':');
-            string[] sellSplit = split[4].Split(':');
+            string data = file2Helper.GetDaysForMaxProfit(file2Helper.Data).Trim();
+
+           
+            string[] split = data.Split(',');
+            string[] lowSplit = split[0].Split(':');
+            string[] highSplit = split[1].Split(':');
+            string[] buySplit = split[2].Split(':');
+            string[] sellSplit = split[3].Split(':');
             string buyDay = "#MainBody_f2Li" + buySplit[1].Trim();
             string sellDay = "#MainBody_f2Li" + sellSplit[1].Trim();
+
+            lblLowestPriceInMonth2.Text += " Day " + lowSplit[1].ToString() + " at " + lowSplit[2].ToString();
+            lblHighestPriceInMonth2.Text += " Day " + highSplit[1].ToString() + " at " + highSplit[2].ToString();
+
+            lblBestDayToBuyMonth2.Text += " " + buySplit[1];
+            lblBestDayToSellMonth2.Text += " " + sellSplit[1];
+            lblTotalProfitMonth2.Text += " " + split[4];
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "setBuy", "setBuyingDay('" + buyDay + "');", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "setSell", "setSellingDay('" + sellDay + "');", true);
