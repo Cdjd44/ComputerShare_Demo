@@ -74,65 +74,14 @@ ul {
             color: white !important
         }
 
-
-/*.calendar {
-    position: relative;
-    width: 300px;
-    background-color: #fff;
-    box-sizing: border-box;
-    box-shadow: rgba(0,0,0, 0.5) 0 5px 50px;
-    border-radius: 8px;
-    overflow: hidden;
+.buy {
+    padding: 5px;
+    background-color: darkgreen;
+    color: white !important
 }
 
-.calendar__date {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
-    grid-gap: 10px;
-    box-sizing: border-box;
+.sell {
+    padding: 5px;
+    background-color: darkgoldenrod;
+    color: white !important
 }
-
-.calendar__day {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 25px;
-    font-weight: 600;
-    color: #262626;
-}
-
-    .calendar__day:nth-child(7) {
-        color: #ff685d;
-    }
-
-.calendar__number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 25px;
-    color: #262626;
-}
-
-    
-
-.calendar__number--current, .calendar__number--buy, .calendar__number--sell, .calendar__number--current:hover {
-    background-color: #009688;
-    color: #fff !important;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-    .calendar__number--buy {
-        background-color: darkgreen;
-    }
-
-    .calendar__number--sell {
-        background-color: darkgoldenrod;
-    }
-
-.calendar__number:nth-child(7n) {
-    color: #ff685d;
-    font-weight: 700;
-}*/
-/*legend color-profile calendar css*/
