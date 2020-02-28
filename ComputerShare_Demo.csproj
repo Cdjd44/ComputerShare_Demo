@@ -82,6 +82,7 @@
     <Content Include="Scripts\bootstrap-4.4.1\js\bootstrap.js" />
     <Content Include="Scripts\bootstrap-4.4.1\js\bootstrap.min.js" />
     <Content Include="Scripts\jQuery\jQuery-3.4.1.js" />
+    <Content Include="Style\Custom.css" />
     <Content Include="Web.config" />
     <Content Include="WebPages\Fancy.aspx" />
     <Content Include="WebPages\Home.aspx" />
@@ -133,7 +134,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DemoFiles\" />
-    <Folder Include="Style\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

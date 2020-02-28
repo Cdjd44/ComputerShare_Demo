@@ -24,24 +24,6 @@ namespace ComputerShare_Demo.WebPages
         protected global::System.Web.UI.WebControls.Button btnLoadFile1;
 
         /// <summary>
-        /// pnlFile1RawResults control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel pnlFile1RawResults;
-
-        /// <summary>
-        /// lblFile1RawData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFile1RawData;
-
-        /// <summary>
         /// btnBestBuyAndSellFile1 control.
         /// </summary>
         /// <remarks>
@@ -67,5 +49,23 @@ namespace ComputerShare_Demo.WebPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFile1Results;
+
+        /// <summary>
+        /// lblFile1ModalLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFile1ModalLabel;
+
+        /// <summary>
+        /// lblFile1ModalBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFile1ModalBody;
     }
 }
