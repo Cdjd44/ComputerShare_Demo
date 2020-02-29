@@ -88,6 +88,15 @@ namespace ComputerShare_Demo.WebPages
                     }
                     lblFile1ModalBody.Text += "</div>";
                     btnBestBuyAndSellFile1.Visible = true;
+
+                    file1days.InnerHtml = "";
+
+                    foreach (KeyValuePair<int, double> kvp in file1)
+                    {
+                        file1days.InnerHtml += "<li id='f1Li" + kvp.Key + "' data-toggle='tooltip' data-placement='bottom' title='" + kvp.Value + "'>" + kvp.Key + "</li>";
+                    }
+                        
+                    pnlFile1Body.Update();
                 }
             }
             catch (Exception ex)
@@ -116,6 +125,15 @@ namespace ComputerShare_Demo.WebPages
                     }
                     lblFile1ModalBody.Text += "</div>";
                     btnBestBuyAndSellFile2.Visible = true;
+
+                    file2days.InnerHtml = "";
+
+                    foreach (KeyValuePair<int, double> kvp in file1)
+                    {
+                        file2days.InnerHtml += "<li id='f2Li" + kvp.Key + "' data-toggle='tooltip' data-placement='bottom' title='" + kvp.Value + "'>" + kvp.Key + "</li>";
+                    }
+
+                    pnlFile2Body.Update();
                 }
             }
             catch (Exception ex)
@@ -142,8 +160,8 @@ namespace ComputerShare_Demo.WebPages
             string[] highSplit = split[1].Split(':');
             string[] buySplit = split[2].Split(':');
             string[] sellSplit = split[3].Split(':');
-            string buyDay = "#MainBody_f1Li" + buySplit[1].Trim();
-            string sellDay = "#MainBody_f1Li" + sellSplit[1].Trim();
+            string buyDay = "#f1Li" + buySplit[1].Trim();
+            string sellDay = "#f1Li" + sellSplit[1].Trim();
 
             lblLowestPriceInMonth1.Text += " Day " + lowSplit[1].ToString() + " at " + lowSplit[2].ToString();
             lblHighestPriceInMonth1.Text += " Day " + highSplit[1].ToString() + " at " + highSplit[2].ToString();
@@ -174,8 +192,8 @@ namespace ComputerShare_Demo.WebPages
             string[] highSplit = split[1].Split(':');
             string[] buySplit = split[2].Split(':');
             string[] sellSplit = split[3].Split(':');
-            string buyDay = "#MainBody_f2Li" + buySplit[1].Trim();
-            string sellDay = "#MainBody_f2Li" + sellSplit[1].Trim();
+            string buyDay = "#f2Li" + buySplit[1].Trim();
+            string sellDay = "#f2Li" + sellSplit[1].Trim();
 
             lblLowestPriceInMonth2.Text += " Day " + lowSplit[1].ToString() + " at " + lowSplit[2].ToString();
             lblHighestPriceInMonth2.Text += " Day " + highSplit[1].ToString() + " at " + highSplit[2].ToString();

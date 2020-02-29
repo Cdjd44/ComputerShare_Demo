@@ -39,7 +39,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav justify-content-center">
                     <li class="nav-item active">
-                        <a runat="server" class="nav-link" href="~/WebPages/Home.aspx">Home</a>
+                        <a runat="server" class="nav-link" href="~/WebPages/Home.aspx">Basic Page</a>
                     </li>
                     <li class="nav-item">
                         <a runat="server" class="nav-link" href="~/WebPages/Fancy.aspx">Fancy Page</a>

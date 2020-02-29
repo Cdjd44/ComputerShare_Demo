@@ -39,6 +39,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
+
+
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
             <div class="jumbotron">
@@ -51,27 +53,31 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row m-3">
         <div class="col-12 col-md-6 offset-md-3">
-            <div class="jumbotron">
-                <div class="row text-center">
-                    <div class="col-12">
-                        <h3>File 1</h3>
-                    </div>
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-12">
-                        <asp:Button ID="btnLoadFile1" runat="server" Text="Load File 1" CssClass="btn btn-info" OnClick="btnLoadFile1_Click"></asp:Button>
-                    </div>
-                </div>
-
-                <div class="row text-center m-3">
-                    <div class="col-12">
-                        <asp:Button ID="btnBestBuyAndSellFile1" runat="server" Text="Find best Buy/Sell day" Visible="false" CssClass="btn btn-success" OnClick="btnBestBuyAndSellFile1_Click"></asp:Button>
-                    </div>
-                </div>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://uk.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Quotes</span></a> by TradingView</div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+          {
+          "symbols": [
+            {
+              "description": "Computershare",
+              "proName": "ASX:CPU"
+            },
+            {
+              "description": "EUR/USD",
+              "proName": "FX_IDC:EURUSD"
+            }
+          ],
+          "colorTheme": "dark",
+          "isTransparent": false,
+          "locale": "uk"
+        }
+                </script>
             </div>
+            <!-- TradingView Widget END -->
         </div>
     </div>
 
@@ -79,23 +85,84 @@
         <div class="col-12 col-md-6 offset-md-3">
             <div class="jumbotron">
                 <div class="row text-center">
-                    <div class="col-12">
+                    <div class="col-6">
+                        <h3>File 1</h3>
+                    </div>
+                    <div class="col-6">
                         <h3>File 2</h3>
                     </div>
                 </div>
 
-                <div class="row text-center">
-                    <div class="col-12">
+                <div class="row text-center mb-3">
+                    <div class="col-6">
+                        <asp:Button ID="btnLoadFile1" runat="server" Text="Load File 1" CssClass="btn btn-info" OnClick="btnLoadFile1_Click"></asp:Button>
+                    </div>
+
+                    <div class="col-6">
                         <asp:Button ID="btnLoadFile2" runat="server" Text="Load File 2" CssClass="btn btn-info" OnClick="btnLoadFile2_Click"></asp:Button>
                     </div>
                 </div>
 
-                <div class="row text-center m-3">
-                    <div class="col-12">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <asp:Button ID="btnBestBuyAndSellFile1" runat="server" Text="Find best Buy/Sell day" Visible="false" CssClass="btn btn-success" OnClick="btnBestBuyAndSellFile1_Click"></asp:Button>
+                    </div>
+
+                    <div class="col-6">
                         <asp:Button ID="btnBestBuyAndSellFile2" runat="server" Text="Find best Buy/Sell day" Visible="false" CssClass="btn btn-success" OnClick="btnBestBuyAndSellFile2_Click"></asp:Button>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="row m-3">
+        <div class="col-12 col-md-6 offset-md-3" style="height: 550px;">
+
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div id="tradingview_9d693"></div>
+                <div class="tradingview-widget-copyright"><a href="https://uk.tradingview.com/symbols/AAPL/" rel="noopener" target="_blank"><span class="blue-text">Apple</span></a>, <a href="https://uk.tradingview.com/symbols/GOOGL/" rel="noopener" target="_blank"><span class="blue-text">Google</span></a> <span class="blue-text">and</span> <a href="https://uk.tradingview.com/symbols/MSFT/" rel="noopener" target="_blank"><span class="blue-text">Microsoft Quotes</span></a> by TradingView</div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.MediumWidget(
+                        {
+                            "symbols": [
+                                [
+                                    "Computershare",
+                                    "ASX:CPU|1m"
+                                ],
+                                [
+                                    "Apple",
+                                    "AAPL|1m"
+                                ],
+                                [
+                                    "Google",
+                                    "GOOGL|1m"
+                                ],
+                                [
+                                    "Microsoft",
+                                    "MSFT|1m"
+                                ] 
+                            ],
+                            "chartOnly": false,
+                            "width": "100%",
+                            "height": "100%",
+                            "locale": "uk",
+                            "colorTheme": "light",
+                            "gridLineColor": "rgba(101, 101, 101, 1)",
+                            "trendLineColor": "#2196f3",
+                            "fontColor": "rgba(66, 66, 66, 1)",
+                            "underLineColor": "rgba(207, 226, 243, 1)",
+                            "isTransparent": false,
+                            "autosize": true,
+                            "container_id": "tradingview_9d693"
+                        }
+                    );
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+
         </div>
     </div>
 
@@ -160,93 +227,65 @@
                             </div>
                         </div>
                     </div>
+                    <asp:UpdatePanel ID="pnlFile1Body" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="calendar">
+                                            <div class="month">
+                                                <ul>
+                                                    <li>File 1<br>
+                                                        <span style="font-size: 18px">2020</span></li>
+                                                </ul>
+                                            </div>
 
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="calendar">
-                                    <div class="month">
-                                        <ul>
-                                            <li>File 1<br>
-                                                <span style="font-size: 18px">2020</span></li>
-                                        </ul>
+                                            <ul class="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                            </ul>
+                                            <ul id="file1days" class="days" runat="server"></ul>
+
+                                            <ul class="days col-12">
+                                                <li class="buy ml-3">Buy</li>
+                                                <li class="sell ml-3">Sell</li>
+                                            </ul>
+                                        </div>
                                     </div>
 
-                                    <ul class="weekdays">
-                                        <li>Mo</li>
-                                        <li>Tu</li>
-                                        <li>We</li>
-                                        <li>Th</li>
-                                        <li>Fr</li>
-                                        <li>Sa</li>
-                                        <li>Su</li>
-                                    </ul>
-                                    <ul class="days" runat="server">
-                                        <li id="f1Li1" runat="server">1</li>
-                                        <li id="f1Li2" runat="server">2</li>
-                                        <li id="f1Li3" runat="server">3</li>
-                                        <li id="f1Li4" runat="server">4</li>
-                                        <li id="f1Li5" runat="server">5</li>
-                                        <li id="f1Li6" runat="server">6</li>
-                                        <li id="f1Li7" runat="server">7</li>
-                                        <li id="f1Li8" runat="server">8</li>
-                                        <li id="f1Li9" runat="server">9</li>
-                                        <li id="f1Li10" runat="server">10</li>
-                                        <li id="f1Li11" runat="server">11</li>
-                                        <li id="f1Li12" runat="server">12</li>
-                                        <li id="f1Li13" runat="server">13</li>
-                                        <li id="f1Li14" runat="server">14</li>
-                                        <li id="f1Li15" runat="server">15</li>
-                                        <li id="f1Li16" runat="server">16</li>
-                                        <li id="f1Li17" runat="server">17</li>
-                                        <li id="f1Li18" runat="server">18</li>
-                                        <li id="f1Li19" runat="server">19</li>
-                                        <li id="f1Li20" runat="server">20</li>
-                                        <li id="f1Li21" runat="server">21</li>
-                                        <li id="f1Li22" runat="server">22</li>
-                                        <li id="f1Li23" runat="server">23</li>
-                                        <li id="f1Li24" runat="server">24</li>
-                                        <li id="f1Li25" runat="server">25</li>
-                                        <li id="f1Li26" runat="server">26</li>
-                                        <li id="f1Li27" runat="server">27</li>
-                                        <li id="f1Li28" runat="server">28</li>
-                                        <li id="f1Li29" runat="server">29</li>
-                                        <li id="f1Li30" runat="server">30</li>
-                                    </ul>
+                                    <div class="row m-3">
+                                        <div class="col-12 col-md-6">
+                                            <asp:Label ID="lblLowestPriceInMonth1" runat="server"></asp:Label>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <asp:Label ID="lblHighestPriceInMonth1" runat="server"></asp:Label>
+                                        </div>
+                                    </div>
 
-                                    <ul class="days col-12">
-                                        <li class="buy ml-3">Buy</li>
-                                        <li class="sell ml-3">Sell</li>
-                                    </ul>
+                                    <div class="row m-3 mt-0">
+                                        <div class="col-12">
+                                            <asp:Label ID="lblBestDayToBuyMonth1" runat="server"></asp:Label>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <asp:Label ID="lblBestDayToSellMonth1" runat="server"></asp:Label>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <asp:Label ID="lblTotalProfitMonth1" runat="server"></asp:Label>
+                                        </div>
+
+                                    </div>
+
                                 </div>
                             </div>
-
-                            <div class="row m-3">
-                                 <div class="col-12 col-md-6">
-                                <asp:Label ID="lblLowestPriceInMonth1" runat="server"></asp:Label>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <asp:Label ID="lblHighestPriceInMonth1" runat="server"></asp:Label>
-                            </div>
-                        </div>
-
-                        <div class="row m-3 mt-0">
-                            <div class="col-12">
-                                <asp:Label ID="lblBestDayToBuyMonth1" runat="server"></asp:Label>
-                            </div>
-
-                            <div class="col-12">
-                                <asp:Label ID="lblBestDayToSellMonth1" runat="server"></asp:Label>
-                            </div>
-
-                            <div class="col-12">
-                                <asp:Label ID="lblTotalProfitMonth1" runat="server"></asp:Label>
-                            </div>
-
-                        </div>
-                    
-                        </div>
-                    </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
@@ -315,92 +354,68 @@
                         </div>
                     </div>
 
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-12">
+                    <asp:UpdatePanel ID="pnlFile2Body" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
 
-                                <div class="calendar">
-                                    <div class="month">
-                                        <ul>
-                                            <li>File 2<br>
-                                                <span style="font-size: 18px">2020</span></li>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-12">
+
+                                        <div class="calendar">
+                                            <div class="month">
+                                                <ul>
+                                                    <li>File 2<br>
+                                                        <span style="font-size: 18px">2020</span></li>
+                                                </ul>
+                                            </div>
+
+                                            <ul class="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                            </ul>
+                                            <ul id="file2days" class="days" runat="server"></ul>
+                                        </div>
+                                        <ul class="days col-12">
+                                            <li class="buy ml-3">Buy</li>
+                                            <li class="sell ml-3">Sell</li>
                                         </ul>
                                     </div>
-
-                                    <ul class="weekdays">
-                                        <li>Mo</li>
-                                        <li>Tu</li>
-                                        <li>We</li>
-                                        <li>Th</li>
-                                        <li>Fr</li>
-                                        <li>Sa</li>
-                                        <li>Su</li>
-                                    </ul>
-                                    <ul class="days" runat="server">
-                                        <li id="f2Li1" runat="server">1</li>
-                                        <li id="f2Li2" runat="server">2</li>
-                                        <li id="f2Li3" runat="server">3</li>
-                                        <li id="f2Li4" runat="server">4</li>
-                                        <li id="f2Li5" runat="server">5</li>
-                                        <li id="f2Li6" runat="server">6</li>
-                                        <li id="f2Li7" runat="server">7</li>
-                                        <li id="f2Li8" runat="server">8</li>
-                                        <li id="f2Li9" runat="server">9</li>
-                                        <li id="f2Li10" runat="server">10</li>
-                                        <li id="f2Li11" runat="server">11</li>
-                                        <li id="f2Li12" runat="server">12</li>
-                                        <li id="f2Li13" runat="server">13</li>
-                                        <li id="f2Li14" runat="server">14</li>
-                                        <li id="f2Li15" runat="server">15</li>
-                                        <li id="f2Li16" runat="server">16</li>
-                                        <li id="f2Li17" runat="server">17</li>
-                                        <li id="f2Li18" runat="server">18</li>
-                                        <li id="f2Li19" runat="server">19</li>
-                                        <li id="f2Li20" runat="server">20</li>
-                                        <li id="f2Li21" runat="server">21</li>
-                                        <li id="f2Li22" runat="server">22</li>
-                                        <li id="f2Li23" runat="server">23</li>
-                                        <li id="f2Li24" runat="server">24</li>
-                                        <li id="f2Li25" runat="server">25</li>
-                                        <li id="f2Li26" runat="server">26</li>
-                                        <li id="f2Li27" runat="server">27</li>
-                                        <li id="f2Li28" runat="server">28</li>
-                                        <li id="f2Li29" runat="server">29</li>
-                                        <li id="f2Li30" runat="server">30</li>
-                                    </ul>
                                 </div>
-                                <ul class="days col-12">
-                                    <li class="buy ml-3">Buy</li>
-                                    <li class="sell ml-3">Sell</li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="row m-3">
-                            <div class="col-12 col-md-6">
-                                <asp:Label ID="lblLowestPriceInMonth2" runat="server"></asp:Label>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <asp:Label ID="lblHighestPriceInMonth2" runat="server"></asp:Label>
-                            </div>
-                        </div>
+                                <div class="row m-3">
+                                    <div class="col-12 col-md-6">
+                                        <asp:Label ID="lblLowestPriceInMonth2" runat="server"></asp:Label>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <asp:Label ID="lblHighestPriceInMonth2" runat="server"></asp:Label>
+                                    </div>
+                                </div>
 
-                        <div class="row m-3 mt-0">
-                            <div class="col-12">
-                                <asp:Label ID="lblBestDayToBuyMonth2" runat="server"></asp:Label>
-                            </div>
+                                <div class="row m-3 mt-0">
+                                    <div class="col-12">
+                                        <asp:Label ID="lblBestDayToBuyMonth2" runat="server"></asp:Label>
+                                    </div>
 
-                            <div class="col-12">
-                                <asp:Label ID="lblBestDayToSellMonth2" runat="server"></asp:Label>
-                            </div>
+                                    <div class="col-12">
+                                        <asp:Label ID="lblBestDayToSellMonth2" runat="server"></asp:Label>
+                                    </div>
 
-                            <div class="col-12">
-                                <asp:Label ID="lblTotalProfitMonth2" runat="server"></asp:Label>
-                            </div>
+                                    <div class="col-12">
+                                        <asp:Label ID="lblTotalProfitMonth2" runat="server"></asp:Label>
+                                    </div>
 
 
-                        </div>
-                    </div>
+                                </div>
+                            </div>
+
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
