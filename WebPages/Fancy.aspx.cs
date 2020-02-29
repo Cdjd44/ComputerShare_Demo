@@ -10,7 +10,7 @@ namespace ComputerShare_Demo.WebPages
     {
         private IFileHelper file1Helper = new FileHelper();
         private IFileHelper file2Helper = new FileHelper();
-        private Page page;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -42,7 +42,7 @@ namespace ComputerShare_Demo.WebPages
             }
         }
 
-        private IDictionary<int, double> loadFileFromDll(string fileName)
+        protected IDictionary<int, double> loadFileFromDll(string fileName)
         {
             string filePath = Server.MapPath("~/") + "DemoFiles\\" + fileName;
             IDictionary<int, double> month = new Dictionary<int, double>();
