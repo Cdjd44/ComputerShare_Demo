@@ -11,8 +11,8 @@ The practical challenge consisted of:
 The development of this demo was undertaken after normal working hours:
 - Thursday 26/02/2020: 1730 - 2330
 - Friday 27/02/2020: 1500 - 1900
-- Saturday 28/02/2020: 1500 - 1700
-- Total time: 12 hours*
+- Saturday 28/02/2020: 1500 - 1830
+- Total time: 13.5 hours*
 
 ## Demo Contents
 The demo project consists of 2 pages:
